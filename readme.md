@@ -45,7 +45,6 @@ Authorize does not come with and rules loaded by default. Rules can be added dyn
 needless calls to the database. The recommended method of adding rules is to set up a route filter:
 
 In a global filter you could setup some basic aliases
-
 ```php
 App::before(function($request)
 {
@@ -53,10 +52,11 @@ App::before(function($request)
 	Auth::addAlias('Moderate',     ['view', 'delete', 'flag', 'unflag']);
 	Auth::addAlias('AllButView',   ['create', 'modify', 'delete', 'flag', 'unflag']);
 });
+
+
 ```
 
 Then you can define your rules in a named filter
-
 
 ```php
 Route::filter('admin', function()

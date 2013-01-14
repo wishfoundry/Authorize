@@ -1,6 +1,6 @@
 {
     "name": "wishfoundry/authorize",
-    "description": "",
+    "description": "An Authentication and Authorization package for Laravel 4",
     "authors": [
         {
             "name": "Ben Greer",
