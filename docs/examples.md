@@ -1,27 +1,28 @@
-Authorize
-==============
-
-!docs Authority
 
 
-Rommie welcomes you to the most convenient Authorization and Authentication available in the Laravel universe
+Adding rules
+-----------
 
+Authorize does not have any rules by default and they must be added manually
 
 
 
-Migrations
----------
-An example migration is provide in src/migrations but is not required. Please customize to suit your needs
-An matching example trait is provided for you to use in your User models as well. Simply include with
-```
-class User {
-....
-use Wishfoundry\Authorize\AuthorizeUserRoleTrait;
+
+
+
+from a database:
+
+```php
+foreach(DB::table('rules')->where_user_id($user->id)->get() as $permission)
+{
+    if($permission->type == 'allow')
+    {
+        Auth::allow($permission->action, $permission->resource);
+    }
+    else
+    {
+        Auth::deny($permission->action, $permission->resource);
+    }
 }
 ```
-
-
-Rules
------
-
 

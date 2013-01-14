@@ -1,6 +1,7 @@
 <?php namespace Wishfoundry\Authorize;
 
 use \Illuminate\Support\ServiceProvider;
+use \Wishfoundry\Authorize\AuthManager as AM;
 
 class AuthorizeServiceProvider extends ServiceProvider {
 
@@ -29,7 +30,7 @@ class AuthorizeServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
-        
+
 		#$this->package('wishfoundry/authorize', __DIR__.'/../../');
         $this->app['auth'] = $this->app->share(function($app)
         {
@@ -38,7 +39,7 @@ class AuthorizeServiceProvider extends ServiceProvider {
             // know that we need to set any queued cookies in the after event later.
             $app['auth.loaded'] = true;
 
-            return new AuthManager($app);
+            return new AM($app);
         });
 	}
 
