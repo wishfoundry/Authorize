@@ -1,0 +1,24 @@
+{
+    "name": "wishfoundry/authorize",
+    "description": "",
+    "authors": [
+        {
+            "name": "Ben Greer",
+            "email": "bngreer@wishfoundry.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "laravel/framework": "4.0.*"
+        "machuga/authority": "dev-develop"
+    },
+    "autoload": {
+        "classmap": [
+            "src/migrations"
+        ],
+        "psr-0": {
+            "Wishfoundry\\Authorize": "src/"
+        }
+    },
+    "minimum-stability": "dev"
+}
