@@ -81,7 +81,7 @@ Route::filter('admin', function()
 	    Auth::allow('Administrate', 'Comment');
 	}
 });
-
+```
 
 Usage is simple and elegant
 
