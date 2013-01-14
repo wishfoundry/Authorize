@@ -1,6 +1,6 @@
 {
     "name": "wishfoundry/authorize",
-    "description": "",
+    "description": "An Authorization and Authentication overlay for Larave 4",
     "authors": [
         {
             "name": "Ben Greer",
@@ -10,7 +10,6 @@
     "require": {
         "php": ">=5.3.0",
         "laravel/framework": "4.0.*"
-        "machuga/authority": "dev-develop"
     },
     "autoload": {
         "classmap": [
