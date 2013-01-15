@@ -1,15 +1,15 @@
 Authorize
 ==============
 
+
+Authorize is a port of the well known Authority library Matthew Machuga and Jesse O'brien, to Laravel 4. Most of the functions are similar with some
+enhancements. This library patches the system Auth class with super powers, and is meant to verify the authentication as well as the authority of the current system user.
+
+
+
 !docs Authorize
 
-Rommie: Would you like some docs
-
-
-Authorize is a port of the well known Authority library for Laravel 4. Most of the functions are similar with some
-enhancements. This library patches the system Auth class with super powers, and is meant to verify the authentication
-as well as the authority of the current system user.
-
+Rommie: Would you like some docs?
 
 Installation
 ------------
@@ -18,7 +18,7 @@ to install add the package dependancy to your composer json file:
 ```
 "wishfoundry/authorize": "dev-master"
 ```
-and in your app/config/app.php file replace the auth serevice provider
+and in your app/config/app.php file replace the default auth service provider
 ```php
 #'Illuminate\Auth\AuthServiceProvider',
 'Wishfoundry\Authorize\AuthorizeServiceProvider',
