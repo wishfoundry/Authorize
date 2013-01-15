@@ -63,8 +63,7 @@ Route::filter('admin', function()
 {
 	if (Auth::guest())
 	{
-	    Auth::deny('AllButView', 'Post');
-	    Auth::deny('AllButView', 'Comment');
+	    Auth::deny('AllButView', ['Post', 'Comment']);
 
 	    /**
 	     * Rule actions can be any arbitrary string you decide
@@ -76,9 +75,7 @@ Route::filter('admin', function()
     // Only make a DB call if user is logged in
 	elseif (Auth::user()->hasRole('admin) )
 	{
-	    Auth::allow('Administrate', 'User');
-	    Auth::allow('Administrate', 'Post');
-	    Auth::allow('Administrate', 'Comment');
+	    Auth::allow('Administrate', ['User', 'Post', 'Comment']);
 	}
 });
 ```

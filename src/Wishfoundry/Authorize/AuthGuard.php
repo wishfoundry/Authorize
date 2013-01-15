@@ -123,7 +123,17 @@ class AuthGuard extends \Illuminate\Auth\Guard #implements \Illuminate\Auth\User
     {
         if( $condition instanceof Closure)
             $condition->bindTo($this);
-        $rule = new Rule($allow, $action, $resource, $condition);
+        if( is_array($resource))
+        {
+            foreach($resource as $res)
+            {
+                $rule = new Rule($allow, $action, $res, $condition);
+            }
+        }
+        else
+        {
+            $rule = new Rule($allow, $action, $resource, $condition);
+        }
         $this->rules->add($rule);
         return $rule;
     }
