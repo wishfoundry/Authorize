@@ -60,7 +60,7 @@ trait AuthorizeUserRoleTrait
      *
      * Determine if this has any of the given role names.
      *
-     * @param string|array Either an array or list of role names.
+     * @param string|array $keys Either an array or list of role names.
      * @return bool
      */
     public function hasAnyRole($keys)
