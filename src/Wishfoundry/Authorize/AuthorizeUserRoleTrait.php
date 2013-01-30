@@ -36,9 +36,9 @@ trait AuthorizeUserRoleTrait
      * Authorize roles and permissions.
      * ================================================================
      *
-     * Check for a specific role
+     * Determine if this has a role with the given name.
      *
-     * @param string
+     * @param string $key The name of the role.
      * @return bool
      */
     public function hasRole($key)
@@ -58,9 +58,9 @@ trait AuthorizeUserRoleTrait
      * Authorize roles and permissions.
      * ================================================================
      *
-     * Check for many roles
+     * Determine if this has any of the given role names.
      *
-     * @param array
+     * @param string|array Either an array or list of role names.
      * @return bool
      */
     public function hasAnyRole($keys)
@@ -84,9 +84,9 @@ trait AuthorizeUserRoleTrait
      * Authorize roles and permissions.
      * ================================================================
      *
-     * Check for many roles
+     * Attach the given role name to this user.
      *
-     * @param string
+     * @param string $role_name The name of the role to attach.
      * @return void
      */
     public function attachRole($role_name)
