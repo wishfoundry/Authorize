@@ -29,7 +29,7 @@ trait AuthorizeUserRoleTrait
 
     public function roles()
     {
-        return $this->hasManyAndBelongsTo('Role', 'role_user');
+        return $this->hasManyAndBelongsTo('Role', 'role_user')->withTimestamps();
     }
 
     /**
