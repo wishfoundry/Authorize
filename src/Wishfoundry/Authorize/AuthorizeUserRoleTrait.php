@@ -24,12 +24,12 @@ trait AuthorizeUserRoleTrait
      * Eloquent User<>Role relationship
      * ================================================================
      *
-     * @return Role
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
 
     public function roles()
     {
-        return $this->hasManyAndBelongsTo('Role', 'role_user')->withTimestamps();
+        return $this->belongsToMany('Role', 'role_user')->withTimestamps();
     }
 
     /**
