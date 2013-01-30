@@ -89,7 +89,7 @@ trait AuthorizeUserRoleTrait
      * @param string
      * @return void
      */
-    public function attachRole($key)
+    public function attachRole($role_name)
     {
         $role = Role::where('name', '=', $role_name)->first();
         if(isset($role))
