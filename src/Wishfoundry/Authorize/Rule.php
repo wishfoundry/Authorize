@@ -1,9 +1,9 @@
 <?php namespace Wishfoundry\Authorize;
-/**
- * Authority: A simple and flexible authorization system for PHP.
- *
- * @package Authority
- */
+    /**
+     * Authority: A simple and flexible authorization system for PHP.
+     *
+     * @package Authorize
+     */
 
 
 /**
@@ -75,7 +75,7 @@ class Rule
      * @param string|mixed  $resource Name of resource or instance of object
      * @return boolean
      */
-    public function relevant($action, $resource)
+    public function isRelevant($action, $resource)
     {
         return $this->matchesAction($action) && $this->matchesResource($resource);
     }
@@ -88,7 +88,8 @@ class Rule
      */
     public function matchesAction($action)
     {
-        return $this->action === $action;
+        $action = (array) $action;
+        return in_array($this->action,$action);
     }
 
     /**

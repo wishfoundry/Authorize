@@ -1,9 +1,5 @@
 <?php namespace Wishfoundry\Authorize;
-/**
- * Authority: A simple and flexible authorization system for PHP.
- *
- * @package Authority
- */
+
 
 
 /**

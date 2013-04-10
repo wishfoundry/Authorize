@@ -1,9 +1,4 @@
 <?php namespace Wishfoundry\Authorize;
-/**
- * Authority: A simple and flexible authorization system for PHP.
- *
- * @package Authority
- */
 
 
 use Countable;
@@ -15,7 +10,7 @@ use Closure;
 /**
  * RuleRepository collections contain and interact with Rule instances
  *
- * @package Authority
+ * @package Authorize
  */
 class RuleRepository implements Countable, ArrayAccess, IteratorAggregate
 {
@@ -67,11 +62,11 @@ class RuleRepository implements Countable, ArrayAccess, IteratorAggregate
     public function getRelevantRules($action, $resource)
     {
         $rules = array_reduce($this->rules, function($rules, $currentRule) use ($action, $resource) {
-            if ($currentRule->relevant($action, $resource)) {
+            if ($currentRule->isRelevant($action, $resource)) {
                 $rules[] = $currentRule;
             }
             return $rules;
-        });
+        }, array());
 
         return new static($rules);
     }

@@ -1,17 +1,17 @@
 <?php namespace Wishfoundry\Authorize;
-/**
- * __      ___    _    ___                 _          
- * \ \    / (_)__| |_ | __|__ _  _ _ _  __| |_ _ _  _ 
- *  \ \/\/ /| (_-< ' \| _/ _ \ || | ' \/ _` | '_| || |
- *   \_/\_/ |_/__/_||_|_|\___/\_,_|_||_\__,_|_|  \_, |
- *                                               |__/
- *                                                                               
- * Created by : bngreer
- * Date: 1/10/13    
- * Copyright 2013 The WishFoundry / Ben Greer. All Rights Reserved.
- * 
- * 
- */
+    /**
+     * __      ___    _    ___                 _
+     * \ \    / (_)__| |_ | __|__ _  _ _ _  __| |_ _ _  _
+     *  \ \/\/ /| (_-< ' \| _/ _ \ || | ' \/ _` | '_| || |
+     *   \_/\_/ |_/__/_||_|_|\___/\_,_|_||_\__,_|_|  \_, |
+     *                                               |__/
+     *
+     * Created by : bngreer
+     * Date: 1/10/13
+     *
+     * License: MIT
+     *
+     */
 
 #use Wishfoundry\Authorize\AuthInjector;
 
@@ -52,6 +52,9 @@ class AuthGuard extends \Illuminate\Auth\Guard #implements \Illuminate\Auth\User
      */
     public function can($action, $resource, $resourceValue = null)
     {
+
+        $self = $this;
+
         if ( ! is_string($resource)) {
             $resourceValue = $resource;
             $resource = get_class($resourceValue);
@@ -59,7 +62,6 @@ class AuthGuard extends \Illuminate\Auth\Guard #implements \Illuminate\Auth\User
 
         $rules = $this->getRulesFor($action, $resource);
 
-        $self = $this;
 
         if (! $rules->isEmpty()) {
             $allowed = array_reduce($rules->all(), function($result, $rule) use ($self, $resourceValue) {
@@ -161,12 +163,9 @@ class AuthGuard extends \Illuminate\Auth\Guard #implements \Illuminate\Auth\User
     public function getRulesFor($action, $resource)
     {
         $aliases = $this->getAliasesForAction($action);
-        return $this->rules->reduce(function($rules, $currentRule) use ($aliases) {
-            if (in_array($currentRule->getAction(), $aliases)) {
-                $rules[] = $currentRule;
-            }
-            return $rules;
-        });
+        return $this->rules->getRelevantRules($aliases, $resource);
+
+
     }
 
     /**

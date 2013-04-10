@@ -89,12 +89,12 @@ if(Auth::can('delete', 'User')
     $user->delete()
 }
 ...
-if(Auth::cannot('view', 'Comment')
+if( Auth::cannot('view', 'Comment') )
 {
     return Redirect::to('unauthorized');
 }
 // Or by aliases
-if(Auth::can('Administrate', 'Post') ...
+if(Auth::can('Administrate', 'Post')) ...
 ```
 
 
@@ -106,7 +106,7 @@ Auth::allow('delete', 'Post')->when(function($post){
 ```
 Which passed a variable as:
 ```php
-if(Auth::can('delete', 'Post', $post)
+if( Auth::can('delete', 'Post', $post) )
 {
     $post->delete();
 }
